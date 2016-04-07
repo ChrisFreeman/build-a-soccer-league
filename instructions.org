@@ -1,10 +1,4 @@
-# build-a-soccer-league
-
-Build a soccer league from player CSV file then generate letters to guardians.
-
-This is Treehouse Python Web Developer Techdegree - Project 1
-
-## Project Overview
+* Project 1 - Build a Soccer League
 
 You have volunteered to be the Coordinator for your town’s youth soccer league. As part of your job you need to divide the 18 children who have signed up for the league into three even teams - Dragons, Sharks and Raptors. In years past, the teams have been unevenly matched, so this year you are doing your best to fix that. For each child, you will have the following information: Name, height (in inches), whether or not they have played soccer before, and their guardians’ names.
 
@@ -24,4 +18,59 @@ As always, meaningful and concise code comments are expected. Your code should b
 
 Good luck!
 
-Full project instructions can be found in instructions.org 
+** Before you start
+
+To prepare for this project you'll need to make sure you complete and
+understand these steps.
+
+1 step
+
+-  **** Have a GitHub account and know how to create a new repository
+   and upload files to it.
+
+   -  You'll submit your finished working project using GitHub.
+   -  If you need a reminder on how to use GitHub and GitHub desktop to
+      create a new repository check out this Workshop 'Share Your
+      Projects With GitHub Desktop' in the Project Resources. 
+
+** Project Instructions
+
+To complete this project, follow the instructions below. If you get
+stuck, ask a question in the community.
+
+5 steps
+
+-  To complete this project, follow the instructions below. If you get
+   stuck, ask a question in the community.
+
+-  **** Manually create a single collection that contains all
+   information for all 18 players. Each player should themselves be
+   represented by their own collection.
+
+-  **** Create appropriate variables and logic to sort and store players
+   into three teams: Sharks, Dragons and Raptors. Be sure that your
+   logic results in all teams having the same number of experienced
+   players on each.
+
+-  **** Save to disk, a personalized letter to the Guardians of each
+   player. Specify: the player's name, team name, and date/time of their
+   first team practice. There should be a total of 18 letters, one for
+   each player.
+
+-  **** As always, please add concise and descriptive comments to your
+   code and be sure to name your constants, variables and keys
+   descriptively.
+
+** Extra Credit
+
+To get an "exceeds" rating, you can expand on the project in the
+following ways:
+
+1 step
+
+-  **** In order to get an “Exceeds Expectations” rating, also provide
+   logic to ensure each team's average height is within 1 inch of the
+   others, as well as having each team contain the same number of
+   experienced players.
+
+
