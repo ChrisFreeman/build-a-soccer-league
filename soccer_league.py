@@ -3,9 +3,48 @@
 
 Partition player data from CSV file, into three teams, generate letters
 to players guardians. See 'instructions.org' for grading rubric.
+
+Each team is represented by a dict created by 'gen_team(name)'
+    team = {'name': "", 'avg_height': 0, players=[]}
+where,
+   'name':  holds the name of the team,
+   'avg_height':  is the average team height from the current players, and
+   'players' is a list of dicts, where each player dict contains the
+       information from CSV file
+
+The Entire League is represented by a list of team dicts:
+    entire_league = [team1, team2 ,team3]
+
+The sorting algorithm works as follows:
+    0. players are separated into two lists for experienced and new
+    1. each player list is sorted by player height (tallest first)
+    2. Loop:
+        A. sort entire_league by avg team height (shortest first)
+        B. Starting with tallest player, add one player to each team
+        C. calculate new avg_height for each team
+    3. The experienced players are added first, then the new players.
+
+Algorithm research:
+    1. Wikipedia Partition Problem Greedy Algorithm
+        https://en.wikipedia.org/wiki/Partition_problem#The_greedy_algorithm
+    2. Multi-Way Number Partitioning, Richard E. Korf
+        http://ijcai.org/Proceedings/09/Papers/096.pdf
+        Twenty-first IJCAI Proceeding 2009
+        International Joint Conferences on Artificial Intelligence Organization
+
+Program Output:
+    1. 18 letters, one to each player's guardian(s), saved in a file named
+        "player_<player_name>.txt"
+    2. Bonus output: 3 team files, one for each team, summarizing the team
+        information: Team name, practice time, average team height, player
+        roster. Saved into a file named "<team_name>_roster.txt"
 """
 
 import csv
+
+__author__ = "Chris Freeman"
+__copyright__ = "Copyright 2016, Chris Freeman"
+__license__ = "MIT"
 
 
 DATAFILE = "soccer_players.csv"
@@ -21,16 +60,6 @@ PRACTICE_TIME = {
 
 TEAM_NAMES = ['Dragons', 'Sharks', 'Raptors']
 
-"""create a team object with such as
-{'name': "", 'avg_height': 0, players=[]}
-
-teams = [team1, team2 ,team3]
-
-sort teams by avg_height (biggest first)
-add one player to each team from lowest-first sorted players
-resort teams
-"""
-
 
 def get_players_from_file(filename=DATAFILE):
     """Read a CSV datafile, convert player data to dict
@@ -43,7 +72,7 @@ def get_players_from_file(filename=DATAFILE):
 
 
 def gen_team(name):
-    """Generate a dict to represent a soccor team
+    """Generate a dict to represent a soccer team
     """
     return {'name': name, 'avg_height': 0, 'players': []}
 
@@ -63,12 +92,28 @@ def get_team_avg_height(team):
     return total_height / num_players
 
 
+def partition_players(players, league):
+    """Partition players into teams by assigning the tallest player
+    to the team with the lowest average height. 'players' list is
+    assumed to be reverse sorted by height (tallest first)
+    """
+    # Partition experienced players into teams
+    while players:
+        # sort teams by avg_height (smallest first)
+        league.sort(key=lambda team: team['avg_height'])
+        # add player to each team
+        for team in league:
+            # add the next player (tallest first)
+            team['players'].append(players.pop(0))
+            # recalculate average height
+            team['avg_height'] = get_team_avg_height(team)
+
+
 def gen_player_letters(team):
     """Generate letter to each team player
 
-    Create logic that iterates through all three teams of players
-    generates a personalized letter to the guardians, letting them
-    know:
+    Generate a personalized letter to the guardians of each player
+    on the team, letting them know:
         which team the child has been placed on, and
         when they should attend their first team team practice.
     Provide the necessary information
@@ -95,7 +140,7 @@ def gen_player_letters(team):
             file.write("practice will be on {} at Treehouse Stadium.\n"
                        "".format(PRACTICE_TIME[team['name']]))
             # closing
-            file.write("\n\nWe look foward to another great year!"
+            file.write("\n\nWe look forward to another great year!"
                        "\n\nRegards, Coach Kicks.\n")
 
 
@@ -124,17 +169,23 @@ def gen_team_roster(team):
                                  player['Guardian Name(s)']))
 
 
+def output_stats(league):
+    """Print to STDOUT team average heights stats
+    """
+    for team in league:
+        print("Team {}: Avg Height {}".format(
+            team['name'], team['avg_height']))
+
+
 def main():
     """Organize a soccer league from player data in CSV file.
     Generate three balanced teams with respect to player experience and height.
-    Generate personalized letters to each players's Guardians.
-
-    Sorting
+    Generate personalized letters to each player's Guardians.
     """
     # generate base team containers
-    teams = []
+    entire_league = []
     for name in TEAM_NAMES:
-        teams.append(gen_team(name))
+        entire_league.append(gen_team(name))
 
     # get players
     players = get_players_from_file()
@@ -153,33 +204,22 @@ def main():
     new_players.sort(key=lambda player: player['Height (inches)'],
                      reverse=True)
 
-    # Sort experienced players
-    while exp_players:
-        # sort teams by avg_height (largest first)
-        teams.sort(key=lambda team: team['avg_height'])  # , reverse=True)
-        # add player to each team
-        for team in teams:
-            # add the next player (shortest first)
-            team['players'].append(exp_players.pop(0))
-            # recalculate average height
-            team['avg_height'] = get_team_avg_height(team)
+    # algorithm summary: tallest available player
+    # placed on team with shortest average height
 
-    # Sort non-experienced players
-    while new_players:
-        # sort teams by avg_height (largest first)
-        teams.sort(key=lambda team: team['avg_height'])  # , reverse=True)
-        # add player to each team
-        for team in teams:
-            # add the next player (shortest first)
-            team['players'].append(new_players.pop(0))
-            # recalculate average height
-            team['avg_height'] = get_team_avg_height(team)
+    # Partition experienced players into teams
+    partition_players(exp_players, entire_league)
+
+    # Partition non-experienced players into teams
+    partition_players(new_players, entire_league)
 
     # output team rosters and player letters
-    for team in teams:
-        gen_team_roster(team)
+    for team in entire_league:
         gen_player_letters(team)
+        gen_team_roster(team)
 
+    # print to STDOUT average height stats
+    output_stats(entire_league)
 
 if __name__ == '__main__':
     main()
