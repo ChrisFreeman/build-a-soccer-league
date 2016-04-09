@@ -1,0 +1,21 @@
+
+
+			Soccer League -- Team Raptors Roster
+
+	First Practice:	March 18, 2016 @ 1:00PM
+
+	Stats:		Number of players: 6, Average Height (inches): 42.50
+
+	Players:
+		Name: Phillip Helm
+			Experienced: YES, Height: 44, Guardian(s): Thomas Helm and Eva Jones
+		Name: Joe Smith
+			Experienced: YES, Height: 42, Guardian(s): Jim and Jan Smith
+		Name: Les Clay
+			Experienced: YES, Height: 42, Guardian(s): Wynonna Brown
+		Name: Eva Gordon
+			Experienced: NO, Height: 45, Guardian(s): Wendy and Mike Gordon
+		Name: Arnold Willis
+			Experienced: NO, Height: 43, Guardian(s): Claire Willis
+		Name: Joe Kavalier
+			Experienced: NO, Height: 39, Guardian(s): Sam and Elaine Kavalier

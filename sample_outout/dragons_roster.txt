@@ -1,0 +1,21 @@
+
+
+			Soccer League -- Team Dragons Roster
+
+	First Practice:	March 17, 2016 @ 1:00PM
+
+	Stats:		Number of players: 6, Average Height (inches): 42.50
+
+	Players:
+		Name: Herschel Krustofski
+			Experienced: YES, Height: 45, Guardian(s): Hyman and Rachel Krustofski
+		Name: Karl Saygan
+			Experienced: YES, Height: 42, Guardian(s): Heather Bledsoe
+		Name: Jill Tanner
+			Experienced: YES, Height: 36, Guardian(s): Clara Tanner
+		Name: Chloe Alaska
+			Experienced: NO, Height: 47, Guardian(s): David and Jamie Alaska
+		Name: Ben Finkelstein
+			Experienced: NO, Height: 44, Guardian(s): Aaron and Jill Finkelstein
+		Name: Sal Dali
+			Experienced: NO, Height: 41, Guardian(s): Gala Dali

@@ -1,0 +1,21 @@
+
+
+			Soccer League -- Team Sharks Roster
+
+	First Practice:	March 17, 2016 @ 3:00PM
+
+	Stats:		Number of players: 6, Average Height (inches): 42.33
+
+	Players:
+		Name: Suzane Greenberg
+			Experienced: YES, Height: 44, Guardian(s): Henrietta Dumas
+		Name: Bill Bon
+			Experienced: YES, Height: 43, Guardian(s): Sara and Jenny Bon
+		Name: Diego Soto
+			Experienced: YES, Height: 41, Guardian(s): Robin and Sarika Soto
+		Name: Sammy Adams
+			Experienced: NO, Height: 45, Guardian(s): Jeff Adams
+		Name: Kimmy Stein
+			Experienced: NO, Height: 41, Guardian(s): Bill and Hillary Stein
+		Name: Matt Gill
+			Experienced: NO, Height: 40, Guardian(s): Charles and Sylvia Gill

@@ -1,0 +1,28 @@
+* Python Project 1 - Build a Soccer League - How you will be graded:
+
+|-----------------------------+--------------------------------------+--------------------------+-----------------------------|
+| task                        | Needs Work                           | Meets Expectations       | Exceeds Expectations        |
+|-----------------------------+--------------------------------------+--------------------------+-----------------------------|
+| Create required collections | Any of the following files are       | All four collections are | N/A                         |
+|                             | missing: List of Dictionaries for:   | created and accurate     |                             |
+|                             | Entire League, all three teams       |                          |                             |
+|-----------------------------+--------------------------------------+--------------------------+-----------------------------|
+| Create satisfactory logic   | Logic does not sort players into     | Logic sorts players into | Logic ALSO assures each     |
+|                             | fair teams, or is based on something | three even teams, based  | team’s average height is    |
+|                             | other than player experience         | on player experience     | within 1 inch of the others |
+|-----------------------------+--------------------------------------+--------------------------+-----------------------------|
+| Personalized Letters        | Any of the required variables are    | All 18 letters are       | N/A                         |
+|                             | not included in the letter, letters  | displayed, including all |                             |
+|                             | are missing , or not displayed       | appropriate information  |                             |
+|-----------------------------+--------------------------------------+--------------------------+-----------------------------|
+	
+
+
+
+	
+
+    
+
+	
+
+    
